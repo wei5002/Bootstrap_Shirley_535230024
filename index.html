@@ -232,41 +232,53 @@
       </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="smallModalLabel">Thank You!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Anda telah berhasil terdaftar untuk mendapatkan update terbaru.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Komunitas -->
     <section>
       <div class="container-fluid pt-5 pb-5 komunitas bg-light" id="komunitas">
         <div class="container">
           <article>
             <hgroup>
-              <h2>Join Our Community</h2>
-              <h3>Subscribe for the latest lifestyle updates</h3>
+              <h2>Bergabunglah dengan Komunitas Kami</h2>
+              <h3>Isi form dibawah untuk berlangganan dan mendapatkan informasi terkini dari kami.</h3>
             </hgroup>
-            <form class="grid">
-              <input
-                type="text"
-                id="firstname"
-                name="firstname"
-                placeholder="First Name"
-                aria-label="First Name"
-                required
-              />
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Email"
-                aria-label="Email"
-                required
-              />
-              <button type="submit" onclick="event.preventDefault()" class="kotak-komunitas">
-                Subscribe
-              </button>
+            <form class="grid" id="subscribeForm">
+              <input type="text" id="firstname" name="firstname" placeholder="Nama Lengkap" aria-label="Name Lengkap" required />
+              <input type="email" id="email" name="email" placeholder="Email" aria-label="Email" required />
+              <button type="submit" class="kotak-komunitas">Subscribe</button>
             </form>
           </article>
         </div>
       </div>
-    </section>  
-    
+    </section>
+
+    <script>
+      document.getElementById('subscribeForm').addEventListener('submit', function(event) {
+          event.preventDefault(); 
+          var modal = new bootstrap.Modal(document.getElementById('smallModal'));
+          modal.show();
+          document.getElementById('subscribeForm').reset(); // Reset form setelah modal ditampilkan
+      });
+  </script>
+  
+
     <!-- footer -->
     <footer style="background-color: rgb(188, 208, 144); ">
       <div class="container-fluid pt-1 pb-1">
@@ -300,6 +312,6 @@
         </p>
       </div>
     </footer>
-    
+
 </body>
 </html>
